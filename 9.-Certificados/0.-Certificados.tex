@@ -1,0 +1,49 @@
+\pagestyle{empty}
+
+\begin{mainbar}
+    \textbf{Certificados}
+\end{mainbar}
+
+\setlength{\parindent}{-30pt}
+\setlength{\textwidth}{180mm}
+
+\ifthenelse{\orcert=1}{
+\begin{figure}[ht]
+    \includegraphics[width=0.95\textwidth]{0.-Portada/Certificados/PUCE.png}
+    \centering
+\end{figure}
+}{
+\begin{figure}[ht]
+    \includegraphics[width=1.115\textwidth, angle=90]{0.-Portada/Certificados/PUCE.png}
+    \centering
+\end{figure}
+}
+
+\newpage
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead[\leftmark]{Certificados}
+\rhead[Ponencias]{\rightmark}
+\lfoot[\thepage]{}
+\rfoot[]{\thepage}
+
+\begin{figure}[h!]
+    %\setlength{\parindent}{-20pt}
+    \includegraphics[width=.9\textwidth]{0.-Portada/Certificados/UTA.png}
+\end{figure}
+
+\input{9.-Certificados/1.-Perfil}
+
+\input{9.-Certificados/2.-Estudios}
+
+\input{9.-Certificados/3.-Ponencias}
+
+\input{9.-Certificados/4.-Meritos}
+
+\input{9.-Certificados/5.-Publicaciones}
+
+\input{9.-Certificados/6.-Experiencia}
+
+%%SOLUCIÓN VERSION PDF%%
+%% gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -o output.pdf -f input.pdf

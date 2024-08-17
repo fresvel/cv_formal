@@ -1,0 +1,184 @@
+%Nuevos comandos
+\newcommand*{\vcenteredhbox}[1]{\begingroup
+\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+
+% icon shortcut
+\newcommand{\icon}[3] { 							
+	\makebox(#2, #2){\textcolor{mainbar}{\csname fa#1\endcsname}}
+}	
+
+% icon with text shortcut
+\newcommand{\icontext}[4]{ 						
+	\vcenteredhbox{\icon{#1}{#2}{#3}}  \hspace{2pt}  \parbox{0.9\textwidth}{\textcolor{#4}{#3}}
+}
+
+% icon with website url
+\newcommand{\iconhref}[5]{ 						
+    \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{#4}{\textcolor{#5}{#3}}
+}
+
+% icon with email link
+\newcommand{\iconemail}[5]{ 						
+    \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{mailto:#4}{\textcolor{#5}{#3}}
+}
+
+%Comandos de Secciones y eventos
+\newcommand{\cvtext}[1] {
+	\begin{tabular*}{1\textwidth}{p{0.98\textwidth}}
+		\parbox{1\textwidth}{#1}
+	\end{tabular*}
+}
+
+\newcommand{\cvsection}[1] {
+	
+	\cvtext{
+		\textbf{{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
+		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } \\
+	}
+    \par\vspace{-1.75\baselineskip}
+
+}
+
+
+
+\newcommand{\cvevent}[5] {
+	
+    \par\vspace{-0.5\baselineskip}
+	\parbox{\textwidth}{
+		\begin{tabular*}{1\textwidth}{p{0.7\textwidth}  r}
+            \textcolor{black}{\textbf{*#2}} & \colorbox{maincol}{\makebox[0.25\textwidth]{\textcolor{white}{#1}}}
+			
+		\end{tabular*}\\[-5pt]
+	
+	    \ifthenelse{\isempty{#3}}{}{
+	    \textcolor{black}{\textbf{#3}}\\[-10pt] 
+	    }
+	
+	    
+		\ifthenelse{\isempty{#4}}{}{
+			{#4}\\
+		}
+	}
+
+	\ifthenelse{\isempty{#5}}{}{
+		\small{#5}
+	}
+	\vspace{-5pt}
+}
+
+
+%Comandos de Portada
+
+\newcommand{\pvtext}[1] {
+	\setlength{\parindent}{0pt}
+	\begin{tabular*}{1\textwidth}{p{0.98\textwidth}}
+		\parbox{1\textwidth}{#1}
+	\end{tabular*}
+}
+
+\newcommand{\pvsection}[1] {
+	
+	\pvtext{
+		\textbf{\large{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
+		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } 
+	}
+    \par\vspace{-1.25\baselineskip}
+}
+
+\newcommand{\pvevent}[5] {
+	
+    
+	\parbox{\textwidth}{
+	    \ifthenelse{\isempty{#1}}{}{
+	    \centering\large\textcolor{maincol}{\textbf{#1}} 
+	    }
+	    
+		\ifthenelse{\isempty{#2}}{}{
+			\large{#2}\\[14pt]
+		}
+	}
+
+    \ifthenelse{\isempty{#3}}{}{
+		\centering{#3}
+	    }
+	
+	
+	\begin{tabular*}{1\textwidth}{p{0.65\textwidth}  r}
+	 	\textcolor{black}{#4} & \colorbox{maincol}{\makebox[0.25\textwidth]{\textcolor{white}{#5}}}
+	\end{tabular*}
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{levent}{
+    colback=cveventc!70,
+    colupper=black,
+    colframe=lightcol!50,
+    %sharp corners,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=5pt,
+    bottom=5pt,
+    width=1.07\textwidth,
+    %fontupper=\ttfamily\fontsize{12}{14}\selectfont,
+}
+
+\newtcolorbox{devent}{
+    colback=cveventd!5,
+    colupper=black,
+    colframe=lightcol!50,
+    %sharp corners,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=5pt,
+    bottom=5pt,
+    width=1.07\textwidth,
+    %fontupper=\ttfamily\fontsize{12}{14}\selectfont,
+}
+
+\newtcolorbox{mainbar}{
+    colback=coolblack,
+    colupper=white,
+    colframe=coolblack,
+    %sharp corners,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=5pt,
+    bottom=5pt,
+    width=1.07\textwidth,
+    fontupper=\large\centering,
+}
+
+
+\newtcolorbox{lport}{
+    colback=cveventc!70,
+    colupper=black,
+    colframe=lightcol!7,
+    %sharp corners,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=5pt,
+    bottom=5pt,
+    width=0.54\textwidth,
+    %fontupper=\ttfamily\fontsize{12}{14}\selectfont,
+}
+
+\newtcolorbox{dport}{
+    colback=cveventd!5,
+    colupper=black,
+    colframe=cveventd!5,
+    %sharp corners,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=5pt,
+    bottom=5pt,
+    width=0.54\textwidth,
+    %fontupper=\ttfamily\fontsize{12}{14}\selectfont,
+}
